@@ -1,24 +1,25 @@
-import { useParams } from 'react-router-dom';
-import services from './AllServices'; // Assume this is where your services array is stored
+import { Popover, PopoverTrigger } from "@/components/ui/popover";
+import { PopoverContent } from "@radix-ui/react-popover";
+import { ChevronDown,WashingMachine } from "lucide-react";
+import { Link } from "react-router-dom";
 
-const ServiceDetail = () => {
-  const { id } = useParams();
-  const service = services.find((s) => s.id === id);
-
-  if (!service) {
-    return <div>Service not found</div>;
-  }
-
+const Laundry = () => {
   return (
     <div>
-      <h1 className="text-3xl font-bold">{service.name}</h1>
-      <div className="mt-4">
-        {service.content.map((item, index) => (
-          <p key={index}>{item}</p>
-        ))}
-      </div>
+      <Popover>
+        <PopoverTrigger className="flex items-center space-x-2 font-bold rounded-2xl py-2 px-3 bg-gray-100 hover:bg-gray-200 transition-colors duration-300 justify-between">
+          <div className="flex items-center space-x-2">
+               <WashingMachine/>
+            <span className="text-xl">Laundry</span>
+          </div>
+          <span>
+            <ChevronDown />
+          </span>
+        </PopoverTrigger>
+        <PopoverContent></PopoverContent>
+      </Popover>
     </div>
   );
 };
 
-export default ServiceDetail;
+export default Laundry;

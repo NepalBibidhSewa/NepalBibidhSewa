@@ -13,6 +13,8 @@ import Signin from "./user/Signin";
 import TechnicianSignin from './technican/Signin'
 import TechnicianDashboard from "./technican/TechnicianDashboard";
 import LaundryServices from "./services/LaundryService";
+import Laundry from "./services/Laundry";
+import Marble from "./services/Marble";
 
 const AppRoutes = () => {
   return (
@@ -32,7 +34,7 @@ const AppRoutes = () => {
       <Route path="/sevices" element={<AllServices />} />
       <Route path="/sevices" element={<AllServices />} />
       <Route path="/about" element={<About />} />
-      <Route path="/services/:id" element={<LaundryServices />} />
+      <Route path="/services/:servicenames" element={<Laundry />} />
       <Route path="/admin-login" element={<AdminLogin />} />
       <Route
         path="/admin-panel"
@@ -44,6 +46,7 @@ const AppRoutes = () => {
       />
       <Route path="/user/profile" element= {<Profile/>}/>
       <Route path="/professional-dashboard" element={<TechnicianDashboard/>} />
+      <Route path="/services-tile-Marbal" element={<Marble/>} />
     </Routes>
   );
 };
