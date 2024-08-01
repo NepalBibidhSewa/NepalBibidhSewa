@@ -12,6 +12,7 @@ import About from "./pages/About";
 import Signin from "./user/Signin";
 import TechnicianSignin from './technican/Signin'
 import TechnicianDashboard from "./technican/TechnicianDashboard";
+import LaundryServices from "./services/LaundryService";
 
 const AppRoutes = () => {
   return (
@@ -31,7 +32,7 @@ const AppRoutes = () => {
       <Route path="/sevices" element={<AllServices />} />
       <Route path="/sevices" element={<AllServices />} />
       <Route path="/about" element={<About />} />
-      <Route path="/services/:id" element={<LaundryService />} />
+      <Route path="/services/:id" element={<LaundryServices />} />
       <Route path="/admin-login" element={<AdminLogin />} />
       <Route
         path="/admin-panel"

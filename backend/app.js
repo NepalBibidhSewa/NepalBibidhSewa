@@ -6,6 +6,7 @@ import cors from "cors";
 import userRoutes from "./routes/User.route.js";
 import adminRoutes from "./routes/Admin.route.js";
 import technicianRoutes from "./routes/Technician.route.js";
+import servicesRoutes from './routes/Service.route.js';
 
 const app = express();
 const Port = 3000;
@@ -29,6 +30,7 @@ app.use(express.json());
 app.use("/api/auth/user", userRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/technicians", technicianRoutes);
+app.use("/api/services", servicesRoutes);
 // app.use('/api/jobs', jobRoutes);
 // app.use('/api/applications', applicationRoutes);
 // app.use('/api/reviews', reviewRoutes);
