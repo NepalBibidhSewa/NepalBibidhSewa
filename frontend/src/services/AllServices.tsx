@@ -9,14 +9,18 @@ import {
   Hammer,
   Fan,
   ChevronDown,
-  MoonStar,
   WashingMachine,
   Paintbrush,
   Table2,
   Cable,
   PanelsTopLeft,
+  CookingPot,
+  Wrench,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import JyotishLogo from "@/assets/astrilogy.jpg"
+import { GiTap,GiBrickWall  } from "react-icons/gi";
+import { TbAirConditioning } from "react-icons/tb";
 
 const services = [
   {
@@ -40,7 +44,7 @@ const services = [
   },
   {
     name: "Plumbing",
-    icon: Droplet,
+    icon: GiTap ,
     content: [
       "Plumbing Service in Nepalgunj",
       "Plumbing Service in Surkhet",
@@ -48,8 +52,8 @@ const services = [
     ],
   },
   {
-    name: "AC",
-    icon: Fan,
+    name: "AC/Fridge",
+    icon: TbAirConditioning,
     content: [
       "AC/Fridge Service in Nepalgunj",
       "AC/Fridge Service in Surkhet",
@@ -57,12 +61,12 @@ const services = [
     ],
   },
   {
-    name: "Jyotish Sewa",
-    icon: MoonStar,
+    name: "Jyotish",
+    icon: () => <img src={JyotishLogo}  className="w-6 h-6 object-cover"/>,
     content: ["ज्योतिष सेवा सबैका लागि"],
   },
   {
-    name: "Painter Sewa",
+    name: "Painting",
     icon: Paintbrush,
     content: [
       "Painting Service in Nepalgunj",
@@ -80,7 +84,7 @@ const services = [
     ],
   },
   {
-    name: "Tile Marble",
+    name: "Tile/Marble fitting",
     icon: Table2,
     content: [
       "Tile/Marble Service in Nepalgunj",
@@ -108,7 +112,7 @@ const services = [
   },
   {
     name: "Home Appliance Service",
-    icon: PanelsTopLeft,
+    icon: CookingPot ,
     content: [
       "Home Appliance Service in Nepalgunj",
       "Home Appliance Service in Surkhet",
@@ -117,7 +121,7 @@ const services = [
   },
   {
     name: "Water Purifier Service",
-    icon: PanelsTopLeft,
+    icon: Droplet,
     content: [
       "Water Purifier Service in Nepalgunj",
       "Water Purifier Service in Surkhet",
@@ -126,7 +130,7 @@ const services = [
   },
   {
     name: "Mason",
-    icon: PanelsTopLeft,
+    icon: GiBrickWall,
     content: [
       "Mason Service in Nepalgunj",
       "Mason Service in Surkhet",

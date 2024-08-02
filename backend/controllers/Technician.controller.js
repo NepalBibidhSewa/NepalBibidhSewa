@@ -45,3 +45,28 @@ export const loginTechnician = async (req, res) => {
     return res.status(500).send(error.message)
   }
 };
+
+
+export const getTechnicianById = async(req, res) => {
+  try {
+    const id = req.params.id;
+    const technician = await Technician.findById(id);
+    if (!technician) {
+      return res.status(404).json({ msg: "Technician not found" });
+    }
+    console.log(technician);
+    res.json(technician)
+  } catch (error) {
+    res.send(error.message);
+    res.status(500).send('Server Error');
+  }
+}
+
+export const getALlTechnicians = async(req, res ) => {
+  try {
+    const technicians = await Technician.find();
+    res.json({ success: true, technicians})
+  } catch (error) {
+    res.status(500).send("internal server error")
+  }
+}

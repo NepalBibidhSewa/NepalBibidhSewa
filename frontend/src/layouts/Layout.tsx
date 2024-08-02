@@ -1,6 +1,7 @@
 import Footer from "../components/Footer";
 import Testimonials from "@/components/Testomonials";
 import Hero from "../components/Hero";
+import NepalBima from "@/components/NepalBima";
 
 type Props = {
   children: React.ReactNode;
@@ -12,6 +13,7 @@ const Layout = ({ children }: Props) => {
       
       <Hero />
       <div className=" container mx-auto flex-1 py-10">{children}</div>
+      <NepalBima />
       <Testimonials />
       <Footer />
     </div>
