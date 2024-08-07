@@ -1,7 +1,6 @@
 import { Popover, PopoverTrigger } from "@/components/ui/popover";
 import { PopoverContent } from "@radix-ui/react-popover";
 import { ChevronDown,WashingMachine } from "lucide-react";
-import { Link } from "react-router-dom";
 
 const Laundry = () => {
   return (

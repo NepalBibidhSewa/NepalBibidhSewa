@@ -2,7 +2,6 @@ import { Routes, Route } from "react-router-dom";
 import Layout from "./layouts/Layout";
 import Signup from "@/user/Signup";
 import Register from "./technican/Signup";
-import LaundryService from "./services/Laundry";
 import AllServices from "./services/AllServices";
 import AdminLogin from "./admin/AdminLogin";
 import AdminPanel from "./admin/AdminPanel";
@@ -12,9 +11,9 @@ import About from "./pages/About";
 import Signin from "./user/Signin";
 import TechnicianSignin from './technican/Signin'
 import TechnicianDashboard from "./technican/TechnicianDashboard";
-import LaundryServices from "./services/LaundryService";
 import Laundry from "./services/Laundry";
 import Marble from "./services/Marble";
+import ServicePage from "./pages/ServicePage";
 
 const AppRoutes = () => {
   return (
@@ -47,6 +46,8 @@ const AppRoutes = () => {
       <Route path="/user/profile" element= {<Profile/>}/>
       <Route path="/professional-dashboard" element={<TechnicianDashboard/>} />
       <Route path="/services-tile-Marbal" element={<Marble/>} />
+      {/* dynamic route */}
+      <Route path="/services/:location/:serviceName" element={<ServicePage />} />
     </Routes>
   );
 };

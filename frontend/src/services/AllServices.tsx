@@ -7,7 +7,6 @@ import {
   Droplet,
   Cctv,
   Hammer,
-  Fan,
   ChevronDown,
   WashingMachine,
   Paintbrush,
@@ -15,127 +14,84 @@ import {
   Cable,
   PanelsTopLeft,
   CookingPot,
-  Wrench,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import JyotishLogo from "@/assets/astrilogy.jpg"
-import { GiTap,GiBrickWall  } from "react-icons/gi";
+import JyotishLogo from "@/assets/astrilogy.jpg";
+import { GiTap, GiBrickWall } from "react-icons/gi";
 import { TbAirConditioning } from "react-icons/tb";
+import { GiSolarPower } from "react-icons/gi";
 
 const services = [
   {
     name: "Laundry",
     icon: WashingMachine,
-    content: [
-      "Laundry Service in Nepalgunj",
-      "Laundry Service in Surkhet",
-      "Laundry Service in Kathmandu",
-      "Open 7 days a week",
-    ],
+    locations: ["Nepalgunj", "Surkhet", "Kathmandu"],
   },
   {
     name: "Carpentry",
     icon: Hammer,
-    content: [
-      "Carpentry Service in Nepalgunj",
-      "Carpentry Service in Surkhet",
-      "Carpentry Service in Kathmandu",
-    ],
+    locations: ["Nepalgunj", "Surkhet", "Kathmandu"],
   },
   {
     name: "Plumbing",
-    icon: GiTap ,
-    content: [
-      "Plumbing Service in Nepalgunj",
-      "Plumbing Service in Surkhet",
-      "Plumbing Service in Kathmandu",
-    ],
+    icon: GiTap,
+    locations: ["Nepalgunj", "Surkhet", "Kathmandu"],
   },
   {
-    name: "AC/Fridge",
+    name: "AC-Fridge",
     icon: TbAirConditioning,
-    content: [
-      "AC/Fridge Service in Nepalgunj",
-      "AC/Fridge Service in Surkhet",
-      "AC/Fridge Service in Kathmandu",
-    ],
+    locations: ["Nepalgunj", "Surkhet", "Kathmandu"],
   },
   {
     name: "Jyotish",
-    icon: () => <img src={JyotishLogo}  className="w-6 h-6 object-cover"/>,
-    content: ["ज्योतिष सेवा सबैका लागि"],
+    icon: () => <img src={JyotishLogo} className="w-6 h-6 object-cover" />,
+    locations: ["All"],
+    description: "ज्योतिष सेवा सबैका लागि",
   },
   {
     name: "Painting",
     icon: Paintbrush,
-    content: [
-      "Painting Service in Nepalgunj",
-      "Painting Service in Surkhet",
-      "Painting Service in Kathmandu",
-    ],
+    locations: ["Nepalgunj", "Surkhet", "Kathmandu"],
   },
   {
     name: "CCTV camera fitting",
     icon: Cctv,
-    content: [
-      "CCTV Service in Nepalgunj",
-      "CCTV Service in Surkhet",
-      "CCTV Service in Kathmandu",
-    ],
+    locations: ["Nepalgunj", "Surkhet", "Kathmandu"],
   },
   {
-    name: "Tile/Marble fitting",
+    name: "Tile-Marble fitting",
     icon: Table2,
-    content: [
-      "Tile/Marble Service in Nepalgunj",
-      "Tile/Marble Service in Surkhet",
-      "Tile/Marble Service in Kathmandu",
-    ],
+    locations: ["Nepalgunj", "Surkhet", "Kathmandu"],
   },
   {
     name: "Electrician",
     icon: Cable,
-    content: [
-      "Electrician Service in Nepalgunj",
-      "Electrician Service in Surkhet",
-      "Electrician Service in Kathmandu",
-    ],
+    locations: ["Nepalgunj", "Surkhet", "Kathmandu"],
   },
   {
-    name: "Aluminium/UPVC Decorator",
+    name: "Aluminium-UPVC Decorator",
     icon: PanelsTopLeft,
-    content: [
-      "Aluminium/UPVC Decorator Service in Nepalgunj",
-      "Aluminium/UPVC Decorator Service in Surkhet",
-      "Aluminium/UPVC Decorator Service in Kathmandu",
-    ],
+    locations: ["Nepalgunj", "Surkhet", "Kathmandu"],
   },
   {
     name: "Home Appliance Service",
-    icon: CookingPot ,
-    content: [
-      "Home Appliance Service in Nepalgunj",
-      "Home Appliance Service in Surkhet",
-      "Home Appliance Service in Kathmandu",
-    ],
+    icon: CookingPot,
+    locations: ["Nepalgunj", "Surkhet", "Kathmandu"],
   },
   {
     name: "Water Purifier Service",
     icon: Droplet,
-    content: [
-      "Water Purifier Service in Nepalgunj",
-      "Water Purifier Service in Surkhet",
-      "Water Purifier Service in Kathmandu",
-    ],
+    locations: ["Nepalgunj", "Surkhet", "Kathmandu"],
   },
   {
     name: "Mason",
     icon: GiBrickWall,
-    content: [
-      "Mason Service in Nepalgunj",
-      "Mason Service in Surkhet",
-      "Mason Service in Kathmandu",
-    ],
+    locations: ["Nepalgunj", "Surkhet", "Kathmandu"],
+  },
+  {
+    name: "Solar Technician",
+    icon: GiSolarPower,
+    locations: ["Nepalgunj", "Surkhet", "Kathmandu"],
   },
 ];
 
@@ -156,15 +112,20 @@ const AllServices = () => {
               </span>
             </PopoverTrigger>
             <PopoverContent>
-              {service.content.map((item, idx) => (
+              {service.locations.map((location, idx) => (
                 <Link
-                  to={`/services/${service.name}`}
+                  to={`/services/${location}/${service.name}`}
                   key={idx}
                   className="block py-1 px-2 hover:bg-gray-100 rounded"
                 >
-                  {item}
+                  {`${service.name} Service in ${location}`}
                 </Link>
               ))}
+              {service.description && (
+                <div className="py-1 px-2 text-sm text-gray-500">
+                  {service.description}
+                </div>
+              )}
             </PopoverContent>
           </Popover>
         ))}

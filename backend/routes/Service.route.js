@@ -1,9 +1,11 @@
 import express from 'express';
-import { getAllServices } from '../controllers/Service.contoller.js';
+import { createService, getAllServices, getServicesById, getServiceName } from '../controllers/Service.contoller.js';
 
 const router = express.Router();
 
-router.get('/services', getAllServices);
-router.post('/')
+router.get('/', getAllServices);
+router.post('/', createService);
+router.post('/:id', getServicesById);
+router.get('/:serviceName', getServiceName);
 
 export default router;

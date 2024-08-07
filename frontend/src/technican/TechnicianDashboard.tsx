@@ -1,9 +1,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css"; 
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { Home, ClipboardList, Bell, Settings, LogOut } from "lucide-react";
 
 const TechnicianDashboard: React.FC = () => {
