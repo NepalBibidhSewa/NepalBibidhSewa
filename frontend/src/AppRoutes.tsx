@@ -48,6 +48,9 @@ const AppRoutes = () => {
       <Route path="/services-tile-Marbal" element={<Marble/>} />
       {/* dynamic route */}
       <Route path="/services/:location/:serviceName" element={<ServicePage />} />
+
+      {/* External Routes */}
+     
     </Routes>
   );
 };

@@ -1,97 +1,61 @@
-import React from "react";
-import { Button } from "@/components/ui/button";
-import "react-phone-number-input/style.css"; 
-import {  useNavigate } from "react-router-dom";
-import { Home, ClipboardList, Bell, Settings, LogOut } from "lucide-react";
+const TechnicianDashboard = () => {
+  const upcomingBookings = [
+    { id: 1, service: 'Plumbing', date: '2024-08-10', time: '10:00 AM' },
+    { id: 2, service: 'Electrical', date: '2024-08-11', time: '2:00 PM' },
+  ];
 
-const TechnicianDashboard: React.FC = () => {
-  const navigate = useNavigate();
+  const recentActivity = [
+    { id: 1, activity: 'Accepted a booking for Plumbing', time: '2 hours ago' },
+    { id: 2, activity: 'Received a 5-star rating', time: '1 day ago' },
+  ];
 
   return (
-    <div className="min-h-screen bg-gray-100 grid grid-cols-1 md:grid-cols-[1fr_4fr] lg:grid-cols-[1fr_3fr]">
-      {/* Sidebar */}
-      <aside className="bg-white shadow-md md:col-span-1 lg:col-span-1 md:flex md:flex-col hidden">
-        <div className="px-4 py-5 border-b">
-          <h2 className="text-xl font-semibold text-gray-800">Dashboard</h2>
+    <div className="p-6 bg-gray-100 min-h-screen">
+      {/* Profile Summary */}
+      <div className="bg-white p-4 rounded-lg shadow-md mb-6">
+        <div className="flex items-center">
+          <img
+            src="https://via.placeholder.com/100"
+            alt="Profile"
+            className="rounded-full w-20 h-20 mr-4"
+          />
+          <div>
+            <h2 className="text-2xl font-semibold">John Doe</h2>
+            <p className="text-gray-600">Nepalgunj</p>
+            <p className="text-gray-600">Rating: 4.8</p>
+          </div>
         </div>
-        <nav className="flex-grow px-4">
-          <ul>
-            <li className="mb-2">
-              <Button variant="link" className="flex items-center w-full text-left">
-                <Home className="w-5 h-5 mr-3" />
-                Home
-              </Button>
-            </li>
-            <li className="mb-2">
-              <Button variant="link" className="flex items-center w-full text-left">
-                <ClipboardList className="w-5 h-5 mr-3" />
-                Jobs
-              </Button>
-            </li>
-            <li className="mb-2">
-              <Button variant="link" className="flex items-center w-full text-left">
-                <Bell className="w-5 h-5 mr-3" />
-                Notifications
-              </Button>
-            </li>
-            <li className="mb-2">
-              <Button variant="link" className="flex items-center w-full text-left">
-                <Settings className="w-5 h-5 mr-3" />
-                Settings
-              </Button>
-            </li>
-          </ul>
-        </nav>
-        <div className="px-4 py-5 border-t">
-          <Button variant="link" className="flex items-center w-full text-left">
-            <LogOut className="w-5 h-5 mr-3" />
-            Log Out
-          </Button>
-        </div>
-      </aside>
-
-      {/* Mobile Sidebar Toggle */}
-      <div className="md:hidden p-4 bg-white shadow-md flex items-center justify-between">
-        <Button variant="link" className="text-gray-800">
-          <Home className="w-5 h-5" />
-          Dashboard
-        </Button>
-        <Button onClick={() => navigate('/menu')} variant="link" className="text-gray-800">
-          Menu
-        </Button>
       </div>
 
-      {/* Main Content */}
-      <main className="p-4 md:p-8 lg:p-10 bg-white shadow-md rounded-lg md:col-span-2 lg:col-span-2">
-        <header className="flex items-center justify-between mb-4">
-          <h1 className="text-2xl font-bold">Welcome, Technician</h1>
-          <Button className="md:hidden">Menu</Button>
-        </header>
-        
-        {/* Active Jobs */}
-        <section className="mb-6">
-          <h2 className="text-xl font-semibold mb-4">Active Jobs</h2>
-          <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-            <p className="text-gray-700">No active jobs at the moment.</p>
+      {/* Upcoming Bookings */}
+      <div className="bg-white p-4 rounded-lg shadow-md mb-6">
+        <h3 className="text-xl font-semibold mb-4">Upcoming Bookings</h3>
+        {upcomingBookings.map((booking) => (
+          <div key={booking.id} className="mb-2">
+            <p className="text-gray-800">{booking.service}</p>
+            <p className="text-gray-600">
+              {booking.date} at {booking.time}
+            </p>
           </div>
-        </section>
+        ))}
+      </div>
 
-        {/* Upcoming Appointments */}
-        <section className="mb-6">
-          <h2 className="text-xl font-semibold mb-4">Upcoming Appointments</h2>
-          <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-            <p className="text-gray-700">You have no upcoming appointments.</p>
+      {/* Recent Activity */}
+      <div className="bg-white p-4 rounded-lg shadow-md mb-6">
+        <h3 className="text-xl font-semibold mb-4">Recent Activity</h3>
+        {recentActivity.map((activity) => (
+          <div key={activity.id} className="mb-2">
+            <p className="text-gray-800">{activity.activity}</p>
+            <p className="text-gray-600">{activity.time}</p>
           </div>
-        </section>
+        ))}
+      </div>
 
-        {/* Notifications */}
-        <section>
-          <h2 className="text-xl font-semibold mb-4">Recent Notifications</h2>
-          <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-            <p className="text-gray-700">No new notifications.</p>
-          </div>
-        </section>
-      </main>
+      {/* Notifications */}
+      <div className="bg-white p-4 rounded-lg shadow-md">
+        <h3 className="text-xl font-semibold mb-4">Notifications</h3>
+        <p className="text-gray-800">You have 2 new notifications</p>
+      </div>
     </div>
   );
 };
